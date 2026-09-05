@@ -35,6 +35,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({
           onError={(e) => handleImageError(e, product.category === 'pastries-viennoiserie' ? FALLBACK_PASTRY_IMAGE : FALLBACK_CAKE_IMAGE)}
           className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
           loading="lazy"
+          decoding="async"
         />
         
         {/* Subtle Dark Overlay Gradient */}

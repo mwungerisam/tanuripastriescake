@@ -114,6 +114,9 @@ export const HeroBanner: React.FC<HeroBannerProps> = ({
                   src={getSafeImageUrl('/images/tanuri_hero_banner_1788298801678.jpg')} 
                   alt="Tanuri Pastries Kigali Artisanal Cake and Pastry Display"
                   referrerPolicy="no-referrer"
+                  fetchPriority="high"
+                  loading="eager"
+                  decoding="async"
                   onError={(e) => handleImageError(e, '/images/tanuri_cake_chocolate_1788298831775.jpg')}
                   className="w-full h-full object-cover object-center"
                 />

@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useMemo } from 'react';
+import React, { useState, useEffect, useMemo, lazy, Suspense } from 'react';
 import { Header } from './components/Header';
 import { HeroBanner } from './components/HeroBanner';
 import { CategoryFilter } from './components/CategoryFilter';
@@ -9,9 +9,10 @@ import { CustomCakeBuilder } from './components/CustomCakeBuilder';
 import { InstagramShowcase } from './components/InstagramShowcase';
 import { ReviewsSection } from './components/ReviewsSection';
 import { OrderConfirmationModal } from './components/OrderConfirmationModal';
-import { AdminPanel } from './components/AdminPanel';
 import { Footer } from './components/Footer';
 import { PRODUCTS, DELIVERY_ZONES, STORE_INFO } from './data/menuData';
+
+const AdminPanel = lazy(() => import('./components/AdminPanel'));
 import { Product, CartItem, CartItemOption, DeliveryZone } from './types';
 import { 
   Sparkles, 
@@ -401,19 +402,23 @@ export default function App() {
       <Footer onOpenAdmin={() => setIsAdminOpen(true)} />
 
       {/* Admin Panel Modal */}
-      <AdminPanel
-        isOpen={isAdminOpen}
-        onClose={() => setIsAdminOpen(false)}
-        products={products}
-        onSaveProduct={handleSaveProduct}
-        onDeleteProduct={handleDeleteProduct}
-        onResetProducts={handleResetProducts}
-        onImportProducts={handleImportProducts}
-        deliveryZones={deliveryZones}
-        onUpdateDeliveryZones={(newZones) => setDeliveryZones(newZones)}
-        storeInfo={storeInfo}
-        onUpdateStoreInfo={(newInfo) => setStoreInfo(newInfo)}
-      />
+      {isAdminOpen && (
+        <Suspense fallback={null}>
+          <AdminPanel
+            isOpen={isAdminOpen}
+            onClose={() => setIsAdminOpen(false)}
+            products={products}
+            onSaveProduct={handleSaveProduct}
+            onDeleteProduct={handleDeleteProduct}
+            onResetProducts={handleResetProducts}
+            onImportProducts={handleImportProducts}
+            deliveryZones={deliveryZones}
+            onUpdateDeliveryZones={(newZones) => setDeliveryZones(newZones)}
+            storeInfo={storeInfo}
+            onUpdateStoreInfo={(newInfo) => setStoreInfo(newInfo)}
+          />
+        </Suspense>
+      )}
 
       {/* Sticky Mobile Floating Cart bar */}
       {cartCount > 0 && !isCartOpen && (

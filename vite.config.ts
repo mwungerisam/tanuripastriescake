@@ -15,6 +15,15 @@ export default defineConfig(() => {
       target: ['es2018', 'safari13', 'ios13', 'chrome79', 'firefox72'],
       cssTarget: ['safari13', 'ios13'],
       sourcemap: false,
+      chunkSizeWarningLimit: 1000,
+      rollupOptions: {
+        output: {
+          manualChunks: {
+            'vendor-react': ['react', 'react-dom'],
+            'vendor-icons': ['lucide-react'],
+          },
+        },
+      },
     },
     server: {
       // HMR is disabled in AI Studio via DISABLE_HMR env var.
