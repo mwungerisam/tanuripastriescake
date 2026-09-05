@@ -132,7 +132,7 @@ export const Footer: React.FC<FooterProps> = ({ onOpenAdmin }) => {
           {/* Locations */}
           <div className="space-y-3">
             <h4 className="font-['Cinzel',serif] text-xs font-bold uppercase tracking-wider text-[#d4af37]">
-              Our Kigali Boutiques
+              Flagship Boutique & Kitchen
             </h4>
             <div className="space-y-3 text-xs text-[#b8ada0]">
               {STORE_INFO.locations.map((loc, i) => (

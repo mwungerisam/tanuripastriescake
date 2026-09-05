@@ -51,7 +51,7 @@ export default function App() {
   // Store information with persistence
   const [storeInfo, setStoreInfo] = useState(() => {
     try {
-      const saved = localStorage.getItem('tanuri_store_v1');
+      const saved = localStorage.getItem('tanuri_store_v2');
       return saved ? JSON.parse(saved) : STORE_INFO;
     } catch {
       return STORE_INFO;
@@ -103,7 +103,7 @@ export default function App() {
   // Persist store info
   useEffect(() => {
     try {
-      localStorage.setItem('tanuri_store_v1', JSON.stringify(storeInfo));
+      localStorage.setItem('tanuri_store_v2', JSON.stringify(storeInfo));
     } catch (e) {
       console.error(e);
     }

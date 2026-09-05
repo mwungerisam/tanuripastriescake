@@ -51,7 +51,7 @@ export const Header: React.FC<HeaderProps> = ({
         <div className="max-w-7xl mx-auto flex items-center justify-between gap-2">
           <div className="flex items-center gap-1.5 sm:gap-2 min-w-0 truncate">
             <span className="inline-block w-2 h-2 rounded-full bg-emerald-700 animate-pulse shrink-0" />
-            <span className="font-bold text-[11px] sm:text-xs truncate">Freshly Baked in Gacuriro & Gisozi</span>
+            <span className="font-bold text-[11px] sm:text-xs truncate">Freshly Baked Daily in Gacuriro, Kigali</span>
             <span className="hidden sm:inline text-black/80 truncate">• Same-day Kigali Delivery in 35-50 mins</span>
           </div>
           <div className="flex items-center gap-2 sm:gap-4 text-xs font-bold shrink-0">

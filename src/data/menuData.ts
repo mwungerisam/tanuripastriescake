@@ -11,15 +11,9 @@ export const STORE_INFO = {
   email: 'orders@tanuripastries.rw',
   locations: [
     {
-      name: 'Tanuri Gacuriro Main Kitchen & Boutique',
-      address: 'KG 9 Ave, Gacuriro, Kigali',
-      hours: 'Mon - Sun: 7:30 AM - 9:00 PM',
-      pickupAvailable: true,
-    },
-    {
-      name: 'Tanuri Gisozi Pastry Hub & Pickup',
-      address: 'KG 14 Ave, Gisozi, Kigali',
-      hours: 'Mon - Sat: 8:00 AM - 8:30 PM',
+      name: 'Tanuri Flagship Boutique & Kitchen',
+      address: 'KG 9 Ave, Gacuriro, Kigali, Rwanda',
+      hours: 'Mon - Sun: 7:30 AM - 9:30 PM',
       pickupAvailable: true,
     },
   ],
@@ -493,15 +487,15 @@ export const INSTAGRAM_POSTS = [
 export const FAQS = [
   {
     q: 'How fast is delivery across Kigali?',
-    a: 'We deliver within 30–50 minutes across all major Kigali neighborhoods (Gacuriro, Gisozi, Nyarutarama, Kimihurura, Kiyovu, Remera, Kibagabaga, etc.). For custom multi-tier celebration cakes, we recommend 24–48 hours advance notice.',
+    a: 'We deliver within 30–50 minutes across all major Kigali neighborhoods (Gacuriro, Nyarutarama, Kimihurura, Kiyovu, Remera, Kibagabaga, Kacyiru, etc.). For custom multi-tier celebration cakes, we recommend 24–48 hours advance notice.',
   },
   {
     q: 'Can I add a custom birthday message or name on the cake?',
     a: 'Yes! All celebration cakes and Bento lunchbox cakes include complimentary custom text piping (e.g., "Happy 25th Birthday Sarah 🎉") and a complimentary celebration candle.',
   },
   {
-    q: 'Where are your pickup locations?',
-    a: 'You can pick up your fresh order directly at our Gacuriro Main Kitchen (KG 9 Ave) or our Gisozi Pastry Hub (KG 14 Ave). Simply select "Pickup" during checkout.',
+    q: 'Where can I pick up my order?',
+    a: 'You can pick up your fresh order directly at our Tanuri Flagship Boutique & Kitchen on KG 9 Ave, Gacuriro, Kigali. Simply select "Pickup" during checkout, and our team will have your order freshly packaged with our signature gold ribbon.',
   },
   {
     q: 'What payment methods do you accept?',

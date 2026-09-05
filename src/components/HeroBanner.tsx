@@ -44,7 +44,7 @@ export const HeroBanner: React.FC<HeroBannerProps> = ({
                   <Sparkles className="w-3.5 h-3.5 shrink-0" />
                   <span className="truncate">Kigali’s Premier Boutique Pastry House</span>
                   <span className="w-1.5 h-1.5 rounded-full bg-[#d4af37] hidden xs:inline" />
-                  <span className="text-[#f5f1e8] font-normal hidden xs:inline">Gacuriro & Gisozi</span>
+                  <span className="text-[#f5f1e8] font-normal hidden xs:inline">Gacuriro, Kigali</span>
                 </div>
 
                 {/* Main Headline */}
@@ -135,10 +135,10 @@ export const HeroBanner: React.FC<HeroBannerProps> = ({
                   </div>
                 </div>
 
-                {/* Floating Gacuriro & Gisozi Tag */}
+                {/* Floating Gacuriro Tag */}
                 <div className="absolute top-4 right-4 bg-[#14110c] md:bg-[#14110ce0]/85 md:backdrop-blur-md border border-[#3e3323] px-3 py-1.5 rounded-full flex items-center gap-1.5 text-xs text-[#e8e2d5]">
                   <MapPin className="w-3.5 h-3.5 text-[#d4af37]" />
-                  <span className="font-semibold text-white">Gacuriro • Gisozi</span>
+                  <span className="font-semibold text-white">Gacuriro, Kigali</span>
                 </div>
 
               </div>
