@@ -3,16 +3,17 @@ import { Header } from './components/Header';
 import { HeroBanner } from './components/HeroBanner';
 import { CategoryFilter } from './components/CategoryFilter';
 import { ProductCard } from './components/ProductCard';
-import { ProductModal } from './components/ProductModal';
-import { CartDrawer } from './components/CartDrawer';
-import { CustomCakeBuilder } from './components/CustomCakeBuilder';
 import { InstagramShowcase } from './components/InstagramShowcase';
 import { ReviewsSection } from './components/ReviewsSection';
-import { OrderConfirmationModal } from './components/OrderConfirmationModal';
 import { Footer } from './components/Footer';
 import { PRODUCTS, DELIVERY_ZONES, STORE_INFO } from './data/menuData';
 
 const AdminPanel = lazy(() => import('./components/AdminPanel'));
+const ProductModal = lazy(() => import('./components/ProductModal'));
+const CartDrawer = lazy(() => import('./components/CartDrawer'));
+const CustomCakeBuilder = lazy(() => import('./components/CustomCakeBuilder'));
+const OrderConfirmationModal = lazy(() => import('./components/OrderConfirmationModal'));
+
 import { Product, CartItem, CartItemOption, DeliveryZone } from './types';
 import { 
   Sparkles, 
@@ -456,40 +457,56 @@ export default function App() {
       </a>
 
       {/* Product Customization Modal */}
-      <ProductModal
-        product={selectedProduct}
-        onClose={() => setSelectedProduct(null)}
-        onAddToCart={handleAddToCart}
-      />
+      {selectedProduct && (
+        <Suspense fallback={null}>
+          <ProductModal
+            product={selectedProduct}
+            onClose={() => setSelectedProduct(null)}
+            onAddToCart={handleAddToCart}
+          />
+        </Suspense>
+      )}
 
       {/* Cart Drawer */}
-      <CartDrawer
-        isOpen={isCartOpen}
-        onClose={() => setIsCartOpen(false)}
-        items={cartItems}
-        onUpdateQuantity={handleUpdateQuantity}
-        onRemoveItem={handleRemoveItem}
-        onClearCart={handleClearCart}
-        selectedZone={selectedZone}
-        onSelectZone={setSelectedZone}
-        onPlaceOrder={(orderDetails) => {
-          setCompletedOrder(orderDetails);
-          setIsCartOpen(false);
-          setCartItems([]);
-        }}
-      />
+      {isCartOpen && (
+        <Suspense fallback={null}>
+          <CartDrawer
+            isOpen={isCartOpen}
+            onClose={() => setIsCartOpen(false)}
+            items={cartItems}
+            onUpdateQuantity={handleUpdateQuantity}
+            onRemoveItem={handleRemoveItem}
+            onClearCart={handleClearCart}
+            selectedZone={selectedZone}
+            onSelectZone={setSelectedZone}
+            onPlaceOrder={(orderDetails) => {
+              setCompletedOrder(orderDetails);
+              setIsCartOpen(false);
+              setCartItems([]);
+            }}
+          />
+        </Suspense>
+      )}
 
       {/* Custom Cake Builder Modal */}
-      <CustomCakeBuilder
-        isOpen={isCustomCakeOpen}
-        onClose={() => setIsCustomCakeOpen(false)}
-      />
+      {isCustomCakeOpen && (
+        <Suspense fallback={null}>
+          <CustomCakeBuilder
+            isOpen={isCustomCakeOpen}
+            onClose={() => setIsCustomCakeOpen(false)}
+          />
+        </Suspense>
+      )}
 
       {/* Order Confirmation Receipt Modal */}
-      <OrderConfirmationModal
-        order={completedOrder}
-        onClose={() => setCompletedOrder(null)}
-      />
+      {completedOrder && (
+        <Suspense fallback={null}>
+          <OrderConfirmationModal
+            order={completedOrder}
+            onClose={() => setCompletedOrder(null)}
+          />
+        </Suspense>
+      )}
 
     </div>
   );

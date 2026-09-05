@@ -15,6 +15,9 @@ export default defineConfig(() => {
       target: ['es2018', 'safari13', 'ios13', 'chrome79', 'firefox72'],
       cssTarget: ['safari13', 'ios13'],
       sourcemap: false,
+      modulePreload: {
+        polyfill: true,
+      },
       chunkSizeWarningLimit: 1000,
       rollupOptions: {
         output: {

@@ -428,3 +428,5 @@ export const CustomCakeBuilder: React.FC<CustomCakeBuilderProps> = ({
     </div>
   );
 };
+
+export default CustomCakeBuilder;

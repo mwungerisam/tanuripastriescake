@@ -22,6 +22,21 @@ export const getSafeImageUrl = (url?: string, fallback = FALLBACK_CAKE_IMAGE): s
   if (trimmed.startsWith('/src/assets/images/')) {
     return trimmed.replace('/src/assets/images/', '/images/');
   }
+  // Automatically optimize Unsplash images for high speed & WebP compression
+  if (trimmed.includes('images.unsplash.com')) {
+    try {
+      const u = new URL(trimmed);
+      u.searchParams.set('auto', 'format');
+      u.searchParams.set('fit', 'crop');
+      if (!u.searchParams.has('w') || parseInt(u.searchParams.get('w') || '0', 10) > 600) {
+        u.searchParams.set('w', '600');
+      }
+      u.searchParams.set('q', '75');
+      return u.toString();
+    } catch {
+      return trimmed;
+    }
+  }
   return trimmed;
 };
 

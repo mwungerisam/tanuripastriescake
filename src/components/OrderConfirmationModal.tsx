@@ -115,3 +115,5 @@ export const OrderConfirmationModal: React.FC<OrderConfirmationModalProps> = ({
     </div>
   );
 };
+
+export default OrderConfirmationModal;
